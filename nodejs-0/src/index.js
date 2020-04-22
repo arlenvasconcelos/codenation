@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 const fibonacci = (arr = [0,1]) => {
     
     if (arr[arr.length-1] > 350){
@@ -13,11 +11,7 @@ const fibonacci = (arr = [0,1]) => {
     }        
 }
 
-
-const isFibonnaci = (num) => {
-    if (fibonacci().find(element => element === num)) return true;
-    else return false;
-}
+const isFibonnaci = (num) => fibonacci().includes(num);
 
 module.exports = {
     fibonacci,
