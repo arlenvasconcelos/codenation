@@ -2,16 +2,30 @@ const promotions = ['SINGLE LOOK', 'DOUBLE LOOK', 'TRIPLE LOOK', 'FULL LOOK'];
 
 function getShoppingCart(ids, productsList) {
 
-	//find objects in productsList
+  const products = []
+  const categories = new Set()		
+
 	const cartProducts = productsList.filter((product) => {
-		return ids.find(id => id === product.id) !== undefined ? true : false
+    
+    //find Product
+    if (ids.find(id => id === product.id)){
+
+      //get products. name and category only
+      products.push({name: product.name, category: product.category})
+      
+      //get unique categories
+      categories.add(product.category)
+
+      //Return to filter the products list
+      return true;
+    }
+
+    //Return to filter the products list
+		return false
 	})
 
-	//save only product name and category
-	const products = cartProducts.map(product => ({name: product.name, category: product.category}))
-
 	//get promotion
-	const promotion = getPromotion(cartProducts)
+	const promotion = promotions[categories.size-1]
 
 	return {
 		products, 
@@ -59,6 +73,5 @@ function getValues(cartProducts, promotionKey){
 		discount: (((fullPrice - reducedPrice)/fullPrice)*100).toFixed(2) + '%'
 	}
 }
-
 
 module.exports = { getShoppingCart };
