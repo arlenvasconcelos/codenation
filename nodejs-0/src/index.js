@@ -1,14 +1,15 @@
 'use strict'
 
-const fibonacci = (arr = [0,1]) => {
+const fibonacci = () => {
     
-    if (arr[arr.length-1] > 350){
-        return arr;
+    const arr = [0, 1];
+    let sum = 0;
+    while (sum < 350) {
+        sum = arr[arr.length-1] + arr[arr.length-2];
+        arr.push(sum);
     }
-    else {
-        arr.push(arr[arr.length-2] + arr[arr.length-1])
-        return fibonacci(arr)
-    }        
+    
+    return arr;
 }
 
 const isFibonnaci = (num) => fibonacci().includes(num);
