@@ -1,396 +1,3 @@
-
-
-const productsList = [
-    {
-      "id": 110,
-      "name": "PINK PANTHER™ T-SHIRT",
-      "category": "T-SHIRTS",
-      "regularPrice": 124.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 124.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 109.99
-        }
-      ]
-    },
-    {
-      "id": 120,
-      "name": "DISNEY CRUELLA© T-SHIRT",
-      "category": "T-SHIRTS",
-      "regularPrice": 114.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 109.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 99.99
-        }
-      ]
-    },
-    {
-      "id": 130,
-      "name": "RUBBERIZED PRINTED T-SHIRT",
-      "category": "T-SHIRTS",
-      "regularPrice": 144.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 139.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 129.99
-        }
-      ]
-    },
-    {
-      "id": 140,
-      "name": "CONTRAST SLOGAN T-SHIRT",
-      "category": "T-SHIRTS",
-      "regularPrice": 149.99,
-      "promotions": [
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 129.99
-        }
-      ]
-    },
-    {
-      "id": 150,
-      "name": "POCKET T-SHIRT",
-      "category": "T-SHIRTS",
-      "regularPrice": 79.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 79.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 69.99
-        }
-      ]
-    },
-    {
-      "id": 160,
-      "name": "SATIN EFFECT SHIRT WITH CHEST POCKET",
-      "category": "T-SHIRTS",
-      "regularPrice": 69.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 69.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 59.99
-        }
-      ]
-    },
-    {
-      "id": 170,
-      "name": "TOP WITH VOLUMINOUS SLEEVES",
-      "category": "T-SHIRTS",
-      "regularPrice": 49.99,
-      "promotions": [
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 39.99
-        }
-      ]
-    },
-    {
-      "id": 210,
-      "name": "BELTED CIGARETTE PANTS",
-      "category": "PANTS",
-      "regularPrice": 124.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK"],
-          "price": 124.99
-        },
-        {
-          "looks": ["DOUBLE LOOK"],
-          "price": 104.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 94.99
-        }
-      ]
-    },
-    {
-      "id": 220,
-      "name": "BELTED FAUX LEATHER PANTS",
-      "category": "PANTS",
-      "regularPrice": 149.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK"],
-          "price": 149.99
-        },
-        {
-          "looks": ["DOUBLE LOOK"],
-          "price": 129.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 119.99
-        }
-      ]
-    },
-    {
-      "id": 230,
-      "name": "KNIT JOGGING PANTS",
-      "category": "PANTS",
-      "regularPrice": 174.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK"],
-          "price": 174.99
-        },
-        {
-          "looks": ["DOUBLE LOOK"],
-          "price": 154.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 144.99
-        }
-      ]
-    },
-    {
-      "id": 240,
-      "name": "SLOUCHY PLAID PANTS",
-      "category": "PANTS",
-      "regularPrice": 79.99,
-      "promotions": [
-        {
-          "looks": ["DOUBLE LOOK", "TRIPLE LOOK", "FULL LOOK"],
-          "price": 59.99
-        }
-      ]
-    },
-    {
-      "id": 250,
-      "name": "POLKA DOT PRINT PANTS",
-      "category": "PANTS",
-      "regularPrice": 59.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 49.99
-        }
-      ]
-    },
-    {
-      "id": 260,
-      "name": "MENSWEAR PANTS",
-      "category": "PANTS",
-      "regularPrice": 59.98,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK"],
-          "price": 59.98
-        }
-      ]
-    },
-    {
-      "id": 310,
-      "name": "ASYMMETRICAL LEATHER SLIDE HEELS",
-      "category": "SHOES",
-      "regularPrice": 89.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK", "FULL LOOK"],
-          "price": 79.99
-        }
-      ]
-    },
-    {
-      "id": 320,
-      "name": "ANIMAL PRINT HIGH HEELED SHOES",
-      "category": "SHOES",
-      "regularPrice": 129.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK"],
-          "price": 119.99
-        },
-        {
-          "looks": ["FULL LOOK"],
-          "price": 109.99
-        }
-      ]
-    },
-    {
-      "id": 330,
-      "name": "SLINGBACK KITTEN HEEL SHOES WITH METAL DETAIL",
-      "category": "SHOES",
-      "regularPrice": 229.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 199.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 189.99
-        }
-      ]
-    },
-    {
-      "id": 410,
-      "name": "MINIMAL SHOPPER",
-      "category": "BAGS",
-      "regularPrice": 109.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK"],
-          "price": 109.99
-        },
-        {
-          "looks": ["FULL LOOK"],
-          "price": 99.99
-        }
-      ]
-    },
-    {
-      "id": 420,
-      "name": "LEATHER CROSSBODY BAG",
-      "category": "BAGS",
-      "regularPrice": 149.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK"],
-          "price": 129.99
-        },
-        {
-          "looks": ["FULL LOOK"],
-          "price": 109.99
-        }
-      ]
-    },
-    {
-      "id": 430,
-      "name": "LEATHER SHOPPER",
-      "category": "BAGS",
-      "regularPrice": 169.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK"],
-          "price": 169.99
-        },
-        {
-          "looks": ["FULL LOOK"],
-          "price": 159.99
-        }
-      ]
-    },
-    {
-      "id": 440,
-      "name": "QUILTED MAXI CROSSBODY BAG",
-      "category": "BAGS",
-      "regularPrice": 249.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 249.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 239.99
-        }
-      ]
-    },
-    {
-      "id": 450,
-      "name": "MEDIUM-SIZED QUILTED BACKPACK WITH STUDS",
-      "category": "BAGS",
-      "regularPrice": 389.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 389.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 359.99
-        }
-      ]
-    },
-    {
-      "id": 460,
-      "name": "ROCK ‘N ROLL BUCKET BAG",
-      "category": "BAGS",
-      "regularPrice": 74.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 64.99
-        },
-        {
-          "looks": ["TRIPLE LOOK", "FULL LOOK"],
-          "price": 59.99
-        }
-      ]
-    },
-    {
-      "id": 470,
-      "name": "STUDDED CROSSBODY BAG",
-      "category": "BAGS",
-      "regularPrice": 74.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK"],
-          "price": 74.99
-        },
-        {
-          "looks": ["DOUBLE LOOK", "TRIPLE LOOK"],
-          "price": 69.99
-        }
-      ]
-    },
-    {
-      "id": 480,
-      "name": "SOFT ROCKER CROSSBODY BAG",
-      "category": "BAGS",
-      "regularPrice": 109.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK"],
-          "price": 99.99
-        },
-        {
-          "looks": ["TRIPLE LOOK"],
-          "price": 94.99
-        },
-        {
-          "looks": ["FULL LOOK"],
-          "price": 89.99
-        }
-      ]
-    },
-    {
-      "id": 490,
-      "name": "SOFT FLAP BACKPACK",
-      "category": "BAGS",
-      "regularPrice": 99.99,
-      "promotions": [
-        {
-          "looks": ["SINGLE LOOK", "DOUBLE LOOK", "TRIPLE LOOK", "FULL LOOK"],
-          "price": 79.99
-        }
-      ]
-    }
-  ]
-
 const promotions = ['SINGLE LOOK', 'DOUBLE LOOK', 'TRIPLE LOOK', 'FULL LOOK'];
 
 function getShoppingCart(ids, productsList) {
@@ -409,7 +16,8 @@ function getShoppingCart(ids, productsList) {
 	return {
 		products, 
 		promotion, 
-		...getValues(cartProducts, promotion)}
+		...getValues(cartProducts, promotion)
+	}
 }
 
 //get promotion that is going to be applied
@@ -417,39 +25,40 @@ function getPromotion (cartProducts){
 	
 	const categories = new Set()
 	
-	for (let i=0; i < cartProducts.length ; i++){
-		categories.add(cartProducts[i].category)	
-	}
+	cartProducts.forEach((product) => {
+		categories.add(product.category)	
+	})	
 	
+	if (categories.size > 3)
+		return promotions[3]
+
 	return promotions[categories.size-1]
 }
 
 function getValues(cartProducts, promotionKey){
-	const values = {
-		fullPrice: 0,
-    reducedPrice: 0,
-	}
+	
+	let fullPrice = 0
+  let reducedPrice = 0
 
 	for (let i=0; i < cartProducts.length ; i++){
-		//Sum fullPrice of all cart products
-		values.fullPrice = values.fullPrice + cartProducts[i].regularPrice
+		//Sum regularPrice of all cart products
+		fullPrice += cartProducts[i].regularPrice
 		
 		//Get price on promotion. if it equal 0, reduced price not found
-		let reducedPrice = cartProducts[i].promotions.reduce((accumulator, promotion) => {
+		let promotionPrice = cartProducts[i].promotions.reduce((accumulator, promotion) => {
 			return promotion.looks.includes(promotionKey) ? accumulator + promotion.price : accumulator			
-		}, 0.0)
+		}, 0)
 		
-		values.reducedPrice = values.reducedPrice + (reducedPrice ? reducedPrice : cartProducts[i].regularPrice)
+		reducedPrice += (promotionPrice ? promotionPrice : cartProducts[i].regularPrice)
 	}
 
 
 	return {
-		totalPrice: values.reducedPrice.toFixed(2),
-		discountValue: (values.fullPrice - values.reducedPrice).toFixed(2),
-		discount: (((values.fullPrice - values.reducedPrice)/values.fullPrice)*100).toFixed(2) + '%'
+		totalPrice: reducedPrice.toFixed(2),
+		discountValue: (fullPrice - reducedPrice).toFixed(2),
+		discount: (((fullPrice - reducedPrice)/fullPrice)*100).toFixed(2) + '%'
 	}
 }
 
-console.log(getShoppingCart([130, 140, 230, 260],productsList))
 
 module.exports = { getShoppingCart };
