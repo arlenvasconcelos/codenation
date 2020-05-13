@@ -3,16 +3,16 @@ import React from 'react';
 class Contact extends React.Component {
   render() {
     return (
-      <article className="contact">
+      <article className="contact" data-testid="contact">
         <span className="contact__avatar">
-          <img src={this.props.contact.avatar} alt={this.props.contact.avatar}/>
+          <img src={this.props.data.avatar} alt={this.props.data.avatar}/>
         </span>
-        <span className="contact__data">{this.props.contact.name}</span>
-        <span className="contact__data">{this.props.contact.phone}</span>
-        <span className="contact__data">{this.props.contact.country}</span>
-        <span className="contact__data">{this.props.contact.admissionDate}</span>
-        <span className="contact__data">{this.props.contact.company}</span>
-        <span className="contact__data">{this.props.contact.department}</span>
+        <span className="contact__data">{this.props.data.name}</span>
+        <span className="contact__data">{this.props.data.phone}</span>
+        <span className="contact__data">{this.props.data.country}</span>
+        <span className="contact__data">{this.props.data.admissionDate}</span>
+        <span className="contact__data">{this.props.data.company}</span>
+        <span className="contact__data">{this.props.data.department}</span>
       </article>
     );
   }

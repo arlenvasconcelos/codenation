@@ -4,6 +4,7 @@ import React from 'react';
 import Topbar from './components/Topbar';
 import Filters from './components/Filters';
 import Contacts from './components/Contacts';
+import Contact from './components/Contact';
 
 //import service
 import { getContacts } from "./service";
@@ -57,7 +58,11 @@ class App extends React.Component {
       <React.Fragment>
         <Topbar />
         <Filters handleFilter={(filter) => this.handleFilter(filter)}/>
-        <Contacts contacts={this.state.filteredContacts}/>
+        <Contacts>
+          {this.state.filteredContacts.map((contact) => (
+            <Contact data={contact} />
+          ))}
+        </Contacts>
       </React.Fragment>
     )
   }
