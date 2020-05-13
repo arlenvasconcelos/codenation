@@ -1,1 +1,7 @@
-v12.16.1
+
+> contacts_app@0.1.0 submit C:\Users\Arlen\codenation\react-14
+> react-scripts test src/__tests__/submit.test.js --reporters=default --reporters=jest-junit "--watchAll=false"
+
+  console.log src/components/Contact.jsx:8
+    2019 04 08
+

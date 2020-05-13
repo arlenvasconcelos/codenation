@@ -1,67 +1,69 @@
 import React from 'react';
 
-import { ReactComponent as LogoSvg } from "./assets/img/logo.svg";
+//import Components
+import Topbar from './components/Topbar';
+import Filters from './components/Filters';
+import Contacts from './components/Contacts';
+import Contact from './components/Contact';
 
+//import service
+import { getContacts } from "./service";
+
+//import css
 import './App.scss';
 
 class App extends React.Component {
+
+  constructor (){
+    super();
+    this.state = {
+      contacts: [],
+      filteredContacts: []
+    }
+  }
+
+  componentDidMount() {
+    //get contacts
+    getContacts().then((data) => {
+      this.setState({ 
+        contacts: data,
+        filteredContacts: data,
+      });
+    });
+  }
+
+  //filter contacts
+  handleFilter(filter){
+    const filteredContacts = this.state.contacts
+      .filter( contact => (
+        contact.name.toUpperCase().includes(filter.query.toUpperCase())
+      ))
+      .sort(function (a, b) {
+        if (a[filter['sortBy']] > b[filter['sortBy']]) {
+          return 1;
+        }
+        if (a[filter['sortBy']] < b[filter['sortBy']]) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    //set filteredContacts from state
+    this.setState({'filteredContacts': filteredContacts})
+
+  }
+
   render() {
     return (
-      <React.Fragment>
-        <header className="topbar">
-          <div className="container">
-            <a href="/" className="topbar__logo">
-              <LogoSvg alt="Logo Instagram" />
-            </a>
-          </div>
-        </header>
-
-        <div className="container">
-          <section className="filters">
-            <div className="filters__search">
-              <input type="text" className="filters__search__input" placeholder="Pesquisar" />
-
-              <button className="filters__search__icon">
-                <i className="fa fa-search"/>
-              </button>
-            </div>
-
-            <button className="filters__item is-selected">
-              Nome <i className="fas fa-sort-down" />
-            </button>
-
-            <button className="filters__item">
-              País <i className="fas fa-sort-down" />
-            </button>
-
-            <button className="filters__item">
-              Empresa <i className="fas fa-sort-down" />
-            </button>
-
-            <button className="filters__item">
-              Departamento <i className="fas fa-sort-down" />
-            </button>
-
-            <button className="filters__item">
-              Data de admissão <i className="fas fa-sort-down" />
-            </button>
-          </section>
-        </div>
-
-        <div className="container">
-          <section className="contacts">
-            <article className="contact">
-              <span className="contact__avatar" />
-              <span className="contact__data">Nome</span>
-              <span className="contact__data">Telefone</span>
-              <span className="contact__data">País</span>
-              <span className="contact__data">Admissão</span>
-              <span className="contact__data">Empresa</span>
-              <span className="contact__data">Departamento</span>
-            </article>
-          </section>
-        </div>
-      </React.Fragment>
+      <div data-testid="app" className="app">
+        <Topbar />
+        <Filters handleFilter={(filter) => this.handleFilter(filter)}/>
+        <Contacts>
+          {this.state.filteredContacts.map((contact) => (
+            <Contact data={contact} />
+          ))}
+        </Contacts>
+      </div>
     )
   }
 }
