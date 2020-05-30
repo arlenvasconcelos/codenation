@@ -9,6 +9,7 @@ import './Topbar.scss';
 const Topbar = () => (
   <header data-testid="topbar" className="topbar">
     <div className="container">
+      
     </div>
   </header>
 );
