@@ -16,7 +16,6 @@ const FeedRoute = () => {
   const [users, setUsers] =useState([])
 
   const getUserHandler = (id) => {
-    // const user = await api.get('/users/'+id)
     return users.filter((u) => u.id === id)[0]
   }
 
@@ -28,6 +27,10 @@ const FeedRoute = () => {
       setUsers(response)
     })
   },[])
+
+  if (!stories.length || !users.length){
+    return <Loading/>
+  }
 
   return (
     <div data-testid="feed-route">

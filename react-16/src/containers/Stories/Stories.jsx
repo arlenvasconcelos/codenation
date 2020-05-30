@@ -27,7 +27,7 @@ const Stories = ({ stories, getUserHandler }) => {
               console.log(user)
               return ( 
                 <button key={key} className="user__thumb" onClick={() => handleSelectStory(story)}>
-                  <img src={user ? user.avatar : ""} alt={user ? user.name : ""}/>
+                  <img src={user.avatar} alt={user.name}/>
                 </button>
               )
             })
