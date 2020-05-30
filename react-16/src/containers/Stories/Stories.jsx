@@ -8,12 +8,14 @@ const Stories = ({ stories, getUserHandler }) => {
 
   const [showStory, setShowStory] = useState(false)
   const [selectedStory, setSelectedStory] = useState({})
+  const [selectedUser, setSelectedUser] = useState({})
 
 
   const handleClose = () => {setShowStory(false)}
 
-  const handleSelectStory = (story) => {
+  const handleSelectStory = (story, user) => {
     setSelectedStory(story)
+    setSelectedUser(user)
     setShowStory(true)
   }
 
@@ -26,7 +28,7 @@ const Stories = ({ stories, getUserHandler }) => {
               const user = getUserHandler(story.userId)
               console.log(user)
               return ( 
-                <button key={key} className="user__thumb" onClick={() => handleSelectStory(story)}>
+                <button key={key} className="user__thumb" onClick={() => handleSelectStory(story, user)}>
                   <img src={user.avatar} alt={user.name}/>
                 </button>
               )
@@ -37,7 +39,9 @@ const Stories = ({ stories, getUserHandler }) => {
 
       {showStory && (
         <Story 
-          story={selectedStory} handleClose={handleClose}
+          story={selectedStory} 
+          user={selectedUser}
+          handleClose={handleClose}
         />
         )}
     </React.Fragment>
