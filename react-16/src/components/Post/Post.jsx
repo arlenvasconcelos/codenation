@@ -9,7 +9,7 @@ const Post = ({ postInfo, userInfo }) => {
   return (
     <article data-testid="post" className="post">
       <div className="post__figure">
-        <img src={postInfo.imageUrl}/>
+        <img src={postInfo.imageUrl} alt={postInfo.url}/>
       </div>
     </article>
   );

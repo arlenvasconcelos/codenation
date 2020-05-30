@@ -10,21 +10,27 @@ import api from '../../service/api'
 
 const ProfileRoute = () => {
 
-  const {id} = useParams()
+  const {username} = useParams();
 
-  const [user, setUser]  = useState({})
+  const [user, setUser]  = useState({
+    id: -1,
+    name: '',
+    username: '',
+    avatar: '',
+    email: ''
+  })
   const [posts, setPosts]  = useState([])
   const [loading, setLoading]  = useState(false)
 
   const getUser = async () => {
     setLoading(true);
-    await api.get(`/users/${id}`).then((response) => {
-      setUser(response)
+    await api.get(`/users?search=${username}`).then((response) => {
+      setUser(response[0])
       setLoading(false);
     });
   }
 
-  const getPosts = async () => {
+  const getPosts = async (id) => {
     setLoading(true);
     await api.get(`/users/${id}/posts`).then((response) => {
       setPosts(response)
@@ -34,8 +40,12 @@ const ProfileRoute = () => {
 
   useEffect(()=>{
     getUser()
-    getPosts()
   },[])
+
+  useEffect(()=>{
+    if(user.id > -1)
+      getPosts(user.id)
+  },[user])
 
   if(loading){
     return <Loading/>
