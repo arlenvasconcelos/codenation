@@ -11,8 +11,8 @@ const UsersRoute = () => {
   useEffect(()=>{
     api.get('/users').then((response) => {
       setUsers(response)
-    },[]);
-  })
+    })
+  },[])
 
   return (
     <div  data-testid="profile-route" className="container">

@@ -12,7 +12,7 @@ const Routes = () => (
 
     <Route exact path="/users" component={UsersRoute}/>
 
-    <Route path="/users/:username" component={ProfileRoute}/>
+    <Route path="/users/:id" component={ProfileRoute}/>
 
     <Route path="/newuser" component={NewUserRoute}/>
 
