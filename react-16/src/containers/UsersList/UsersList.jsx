@@ -13,13 +13,11 @@ const UsersList = ({ users }) => {
 
   return (
     <section data-testid="user-list" className="users-list">
-      <div className="users-list">
-        {
-          users.length && users.map((user, key) => (
-            <User infoUser={user} key={key}/>
-          ))
-        }
-      </div>
+      {
+        users.length && users.map((user, key) => (
+          <User infoUser={user} key={key}/>
+        ))
+      }
     </section>
   )
 };
