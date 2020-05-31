@@ -5,8 +5,6 @@ import './Post.scss';
 
 const Post = ({ postInfo, userInfo }) => {
 
-  console.log(userInfo, postInfo)
-
   const [following, setFollowing] = useState(false)
   const [liked, setLiked] = useState(false)
 
@@ -46,8 +44,7 @@ const Post = ({ postInfo, userInfo }) => {
                 <span>
                   curtido por
                   <Link> Elvis Schulist </Link>
-                  e outra
-                  <Link> 1 pessoa </Link>
+                  e outra<Link> 1 pessoa </Link>
                 </span> 
               </p>
             </div>

@@ -17,7 +17,7 @@ const FeedRoute = () => {
   const [filteredUsers, setFilteredUsers] =useState([])
 
   const getUserHandler = (id) => {
-    return filteredUsers.filter((u) => u.id === id)[0]
+    return users.filter((u) => u.id === id)[0]
   }
 
   useEffect(()=>{
