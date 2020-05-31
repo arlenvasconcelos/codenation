@@ -15,7 +15,7 @@ const UsersRoute = () => {
   },[])
 
   return (
-    <div  data-testid="profile-route" className="container">
+    <div  data-testid="users-route" className="container">
       <UsersList users={users}/>
     </div>
   );

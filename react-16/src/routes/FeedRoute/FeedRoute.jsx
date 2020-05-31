@@ -51,14 +51,18 @@ const FeedRoute = () => {
     })
   },[filteredUsers])
 
-  if (!stories.length || !filteredUsers.length){
-    return <Loading/>
-  }
-
   return (
     <div data-testid="feed-route">
-      <Stories stories={stories} getUserHandler={getUserHandler}/>
-      <Posts posts={posts} getUserHandler={getUserHandler}/>
+      {
+        stories.length && users.length
+          ? <Stories stories={stories} getUserHandler={getUserHandler}/>
+          : <Loading/>
+      }
+      {
+        posts.length > 0
+          ? <Posts posts={posts} getUserHandler={getUserHandler}/>
+          : <Loading/>
+      }      
     </div>
   );
 };

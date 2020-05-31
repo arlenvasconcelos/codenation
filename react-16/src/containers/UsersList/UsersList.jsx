@@ -7,16 +7,16 @@ import './UsersList.scss';
 
 const UsersList = ({ users }) => {
 
-  if(!users.length){
-    return <Loading/>
-  }
-
   return (
     <section data-testid="user-list" className="users-list">
       {
-        users.length && users.map((user, key) => (
-          <User infoUser={user} key={key}/>
-        ))
+        users.length ? (
+          users.length && users.map((user, key) => (
+            <User infoUser={user} key={key}/>
+          ))
+        ) : (
+          <Loading/>
+        )
       }
     </section>
   )

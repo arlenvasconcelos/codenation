@@ -20,21 +20,22 @@ const ProfileRoute = () => {
     email: ''
   })
   const [posts, setPosts]  = useState([])
-  const [loading, setLoading]  = useState(false)
+  const [loadingUser, setLoadingUser]  = useState(false)
+  const [loadingPosts, setLoadingPosts]  = useState(false)
 
   const getUser = async () => {
-    setLoading(true);
+    setLoadingUser(true);
     await api.get(`/users?search=${username}`).then((response) => {
       setUser(response[0])
-      setLoading(false);
+      setLoadingUser(false);
     });
   }
 
   const getPosts = async (id) => {
-    setLoading(true);
+    setLoadingPosts(true);
     await api.get(`/users/${id}/posts`).then((response) => {
       setPosts(response)
-      setLoading(false);
+      setLoadingPosts(false);
     });
   }
 
@@ -47,18 +48,26 @@ const ProfileRoute = () => {
       getPosts(user.id)
   },[user])
 
-  if(loading){
-    return <Loading/>
-  }
-
   return (
     <div data-testid="profile-route">
-      <UserProfile
-        username={user.username}
-        avatar={user.avatar}
-        name={user.name}
-      />
-      <UserPosts posts={posts}/>
+      {
+        loadingUser ? (
+          <UserProfile
+            username={user.username}
+            avatar={user.avatar}
+            name={user.name}
+          />
+        ) : (
+          <Loading/>
+        )
+      }
+      {
+        loadingPosts ? (
+          <UserPosts posts={posts}/>
+        ) : (
+          <Loading/>
+        )
+      }
     </div>
   );
 };
