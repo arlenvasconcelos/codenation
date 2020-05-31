@@ -22,14 +22,12 @@ const UserForm = () => {
   const handleAddUser = (e) => {
     e.preventDefault();
     api.post('users', JSON.stringify(newUser)).then((response) => {
-      console.log(response)
       setShowSuccessMessage(true)
     })
   }
 
   const handleChange = (value, label) => {
     setNewUser({...newUser, [label]: value})
-    console.log(newUser)
   }
 
   return (

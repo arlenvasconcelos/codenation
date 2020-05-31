@@ -5,10 +5,10 @@ import Post from '../../components/Post';
 const Posts = ({ posts, getUserHandler }) => (
   <div data-testid="posts" className="container">
     {
-      posts.map((post) => {
+      posts.map((post, key) => {
         const user = getUserHandler(post.userId)
         
-        return <Post postInfo={post} userInfo={user}/>
+        return <Post key={key} postInfo={post} userInfo={user}/>
       })
     }
   </div>

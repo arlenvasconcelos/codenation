@@ -44,7 +44,7 @@ const FeedRoute = () => {
   },[stories, users])
 
   useEffect(() => {
-    filteredUsers.map((user) => {
+    filteredUsers.forEach((user) => {
       api.get(`/users/${user.id}/posts`).then(response => {
         setPosts((posts) => [...posts, ...response])
       })

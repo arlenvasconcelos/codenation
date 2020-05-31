@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Story from '../../components/Story';
 
@@ -26,7 +26,6 @@ const Stories = ({ stories, getUserHandler }) => {
           {
             stories.map((story, key) => {
               const user = getUserHandler(story.userId)
-              console.log(user)
               return ( 
                 <button key={key} className="user__thumb" onClick={() => handleSelectStory(story, user)}>
                   <img src={user.avatar} alt={user.name}/>

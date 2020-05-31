@@ -43,8 +43,8 @@ const Post = ({ postInfo, userInfo }) => {
               <p className="user">
                 <span>
                   curtido por
-                  <Link> Elvis Schulist </Link>
-                  e outra<Link> 1 pessoa </Link>
+                  <Link to="#"> Elvis Schulist </Link>
+                  e outra<Link to="#"> 1 pessoa </Link>
                 </span> 
               </p>
             </div>
