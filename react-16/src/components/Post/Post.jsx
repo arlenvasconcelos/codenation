@@ -8,6 +8,14 @@ const Post = ({ postInfo, userInfo }) => {
   const [following, setFollowing] = useState(false)
   const [liked, setLiked] = useState(false)
 
+  const handleFollowing = () => {
+    setFollowing(!following)
+  }
+
+  const handleLiked = () => {
+    setLiked(!liked)
+  }
+
   return (
     <article data-testid="post" className="post">
     {
@@ -28,7 +36,7 @@ const Post = ({ postInfo, userInfo }) => {
             </div>
             <button 
               className={following ? "follow-btn is-following" : "follow-btn"}
-              onClick={() => setFollowing(!following)}>
+              onClick={handleFollowing}>
               {following ? "Seguindo" : "Seguir"}
             </button>
           </div>
@@ -36,7 +44,7 @@ const Post = ({ postInfo, userInfo }) => {
             <img src={postInfo.imageUrl} alt={postInfo.imageUrl}/>
           </div>
           <div className="post__controls">
-            <button className="post__control" onClick={() => setLiked(!liked)}>
+            <button className="post__control" onClick={handleLiked}>
               <i className={liked ? "fas fa-heart" : "far fa-heart"}/>
             </button>
             <div className="post__status">
