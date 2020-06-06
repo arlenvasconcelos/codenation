@@ -16,7 +16,6 @@ const App = () => {
   const { persistor, store } = configureStore();
 
   return (
-
     <Provider store={store}>
       <PersistGate 
         loading={<Loading/>} 
@@ -29,7 +28,6 @@ const App = () => {
         </BrowserRouter>
       </PersistGate>
     </Provider>
-    
   )
 };
 

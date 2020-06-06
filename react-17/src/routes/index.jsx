@@ -1,27 +1,18 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import {Login, Dashboard} from '../containers';
 
-const PrivateRoute = ({component: Component, ...rest}) => (
-  <Route
-    {...rest}
-    render={props => (false ? (
-      <Component
-        {...props}
-      />
-    ) : (
-      <Redirect to="/login" />
-    ))}
-  />
-)
-
+import {PrivateRoute} from '../containers';
+import LoginRoute from './LoginRoute/LoginRoute';
+import DashboardRoute from './DashboardRoute/DashboardRoute';
+import AuthorizeRoute from './AuthorizeRoute/AuthorizedRoute';
 
 const Routes = () => {
 
   return (
     <>
-      <Route path="/login" component={Login}/>
-      <PrivateRoute path="/dashboard" component={Dashboard}/>
+      <Route path="/login" component={LoginRoute}/>
+      <Route path="/authorize" component={AuthorizeRoute}/>
+      <PrivateRoute path="/dashboard" comp={DashboardRoute}/>
     </>
   )
 }
