@@ -1,3 +1,5 @@
+import {TYPES_USER} from '../actions';
+
 const initialValue = {
   email: "arlen.vasconcelos@gmail.com",
   errorMessage: "",
@@ -7,7 +9,14 @@ const initialValue = {
 }
 
 const user = (state = initialValue, action) => {
-  return state
+  switch (action.type) {
+    case TYPES_USER.UPDATE_USER:
+      return {
+        ...state,
+        ...action.payload,
+      }
+    default:
+      return state;
+  }
 }
-
 export default user;
