@@ -5,7 +5,7 @@ import './Dashboard.scss';
 const Dashboard = ({ children }) => {
   return (
     <div className="dashboard" data-testid="dashboard">
-      Dashboard
+      {children}
     </div>
   );
 }
